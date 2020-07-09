@@ -11,7 +11,7 @@ export default class TrackCard extends Component {
           <Card.Header>{title}</Card.Header>
           <Card.Meta>
             <span>{username}</span>
-            <span style="hidden">{user_id}</span>
+            <span className="hidden">{user_id}</span>
           </Card.Meta>
           <Card.Description>
             <ReactPlayer url={audio} controls={true} />
