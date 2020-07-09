@@ -11,7 +11,6 @@ export default class Profile extends Component {
     super(props);
     this.state = {
       tracks: [],
-      viewedUser: {},
     };
   }
 
@@ -21,17 +20,23 @@ export default class Profile extends Component {
   // when looking at another profile, fetch that user's data (incl tracks and followee status)
 
   componentDidMount() {
-    if(this.props.user){
-        fetch(`/api/users/`)
-    }
-
-
+    let windowPath = window.location.pathname.split("/");
+    let id = windowPath[windowPath.length - 1];
+    console.log(this.props.user.id);
+    if (this.props.user) {
+      fetch(URL + `/api/users/${this.props.user.id}/tracks`)
+        .then((r) => r.json())
+        .then((json) =>
+          this.setState({ tracks: json, viewedUser: this.props.user })
+        );
+    } else {
       // fetch a foreign profile and follower info
-    if (this.props.user_id != this.props.user.id) {
-      fetch(`/api/users/${this.props.user_id}`)
+      fetch(URL + `/api/users/${id}`)
         .then((res) => res.json())
         .then((user) => {
-          fetch(`/api/users/${this.props.user.id}/is_following/${user.id}`)
+          fetch(
+            URL + `/api/users/${this.props.currentUser.id}/is_following/${id}`
+          )
             .then((res) => res.json())
             .then((data) => {
               this.setState({
@@ -45,15 +50,14 @@ export default class Profile extends Component {
 
   render() {
     // let { user } = this.state.viewedUser;
-    return (
+    return this.state.viewedUser ? (
       <Container text>
-        <ProfHeader
-          user={this.props.user}
-        />{" "}
-        <br />
-        Tracks:
+        <ProfHeader user={this.state.viewedUser} />
+        <h3>Tracks:</h3>
         <Tracklist tracks={this.state.tracks} />
       </Container>
+    ) : (
+      <Container text content={"Loading, please wait"} />
     );
   }
 }

@@ -6,9 +6,8 @@ import Home from './components/Home';
 import Profile from './components/Profile'
 import Upload from './components/Upload'
 import NavBar from './components/NavBar'
-import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Switch, Route, useLocation} from 'react-router-dom'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 export default class App extends Component {
 

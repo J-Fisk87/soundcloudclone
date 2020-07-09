@@ -5,9 +5,6 @@ import {
     Container 
 
 } from 'semantic-ui-react'
-import PropTypes from "prop-types";
-// import ReactPlayer from "react-player";
-
 
 export default class NavBar extends Component {
     constructor(props) {

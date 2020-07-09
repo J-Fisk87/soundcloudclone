@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Button, Icon } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 
 export default function ProfHeader(props) {
     let { username, email } = props.user;

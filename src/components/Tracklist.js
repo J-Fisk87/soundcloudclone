@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, CardGroup } from "semantic-ui-react";
+import { CardGroup } from "semantic-ui-react";
 import TrackCard from "./TrackCard";
 
 export default function Tracklist(props) {
