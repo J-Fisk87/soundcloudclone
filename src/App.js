@@ -62,64 +62,13 @@ export default class App extends Component {
         <BrowserRouter>
           <NavBar />
           <Switch>
-            <Route
-              exact
-              path="/home"
-              render={((props) => console.log(props), (<Home user={user} />))}
-            />
-            <Route
-              exact
-              path="/profile"
-              render={(props) => (
-                <Profile
-                  user={user}
-                  viewedUser={
-                    null /* user will have to be contextual, not same source as logged in user */
-                  }
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/upload"
-              render={(props) => <Upload user={user} />}
-            />
-            <Route
-              exact
-              path="/"
-              render={(props) =>
-                this.state.isLoggedIn ? (
-                  <div></div>
-                ) : (
-                  <HomepageLayout
-                    {...props}
-                    loggedInStatus={this.state.isLoggedIn}
-                  />
-                )
-              }
-            />
-            <Route
-              exact
-              path="/login"
-              render={(props) => (
-                <Login
-                  {...props}
-                  loggedInStatus={this.state.isLoggedIn}
-                  handleLogin={this.handleLogin}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/signup"
-              render={(props) => (
-                <Signup
-                  {...props}
-                  loggedInStatus={this.state.isLoggedIn}
-                  handleLogin={this.handleLogin}
-                />
-              )}
-            />
+            <Route exact path='/home' render={props => <Home user={user}/>}/>
+            <Route exact path='/profile/:id' render={props => <Profile currentUser={user} />}/>
+            <Route exact path='/myprofile' render={props => <Profile user={user}/>}/>
+            <Route exact path='/upload' render={props => <Upload {...props} user={user}/>}/>
+            <Route exact path='/' render={props =>  this.state.isLoggedIn ? <div></div> : <HomepageLayout {...props} loggedInStatus={this.state.isLoggedIn}/>}/>
+            <Route exact path='/login' render={props => <Login {...props} loggedInStatus={this.state.isLoggedIn} handleLogin={this.handleLogin}/>}/>
+            <Route exact path='/signup' render={props => <Signup {...props} loggedInStatus={this.state.isLoggedIn} handleLogin={this.handleLogin}/>}/>
           </Switch>
         </BrowserRouter>
       </div>

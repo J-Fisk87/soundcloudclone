@@ -40,7 +40,7 @@ export default class NavBar extends Component {
                         </Menu.Item>
                     </Link>
 
-                    <Link to='/profile'>
+                    <Link to='/myprofile'>
                         <Menu.Item
                         name='profile'
                         active={activeItem === 'profile'}
