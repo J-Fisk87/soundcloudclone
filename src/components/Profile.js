@@ -22,18 +22,21 @@ export default class Profile extends Component {
 
   // fetch tracks for viewed user, also set viewedUser
   // backend needs set up to render all tracks from single user
-  //   componentDidMount() {
-  //     fetch(URL + "")
-  //       .then((r) => r.json())
-  //       .then((json) => this.setState({ tracks: json })),
-  //     this.setState({viewedUser: })
-  //   }
+  componentDidMount() {
+    fetch(
+      "/Users/J.Fisk/Development/code/SoundcloudClone-API/SoundcloudClone-API/public/ACM x NM - after thought 166 BPM.mp3"
+    ) // <-- temporary testing route
+      .then((r) => r.json())
+      .then((json) => this.setState({ tracks: json }));
+    //   this.setState({viewedUser: })
+  }
 
   render() {
     // let { user } = this.state.viewedUser;
     return (
       <Container text>
-        <ProfHeader user={this.state.viewedUser} /> <br />
+        <ProfHeader user={this.props.user} /> <br />
+        Tracks:
         <Tracklist tracks={this.state.tracks} />
       </Container>
     );
