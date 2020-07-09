@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { 
     Card
 } from 'semantic-ui-react'
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 
 
 export default class TrackCard extends Component {
@@ -19,7 +19,7 @@ export default class TrackCard extends Component {
                         <Card.Meta>{username}</Card.Meta>
                     </Link>
                     <Card.Description>
-                        audio player goes here
+                        <ReactPlayer controls={true} url={audio} />
                     </Card.Description>
                 </Card.Content>
             </Card>

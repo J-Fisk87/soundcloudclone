@@ -12,15 +12,20 @@ export default class Profile extends Component {
     this.state = {
       tracks: [],
       viewedUser: {},
-      isLoading: true,
     };
   }
 
   // 'follow' button (put 'api/users/:id/follow_user/:follower_id', to: 'users#follow_user')
 
-  // fetch tracks for viewed user, also set viewedUser
+  // when looking at your own profile, fetch props.user tracks. Follow button should be off
+  // when looking at another profile, fetch that user's data (incl tracks and followee status)
 
   componentDidMount() {
+    if(this.props.user){
+        fetch(`/api/users/`)
+    }
+
+
       // fetch a foreign profile and follower info
     if (this.props.user_id != this.props.user.id) {
       fetch(`/api/users/${this.props.user_id}`)
