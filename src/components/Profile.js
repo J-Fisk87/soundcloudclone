@@ -12,8 +12,8 @@ export default class Profile extends Component {
     super(props);
     this.state = {
       tracks: [],
-      viewedUser: {},
-      selfProf: this.props.user.id === this.state.viewedUser.id
+    //   viewedUser: {},
+    //   selfProf: this.props.user.id === this.state.viewedUser.id
     };
   }
 
@@ -34,7 +34,10 @@ export default class Profile extends Component {
     // let { user } = this.state.viewedUser;
     return (
       <Container text>
-        <ProfHeader user={this.props.user} self={this.state.selfProf} /> <br />
+        <ProfHeader 
+        user={this.props.user} 
+        // self={this.state.selfProf} 
+        /> <br />
         Tracks:
         <Tracklist tracks={this.state.tracks} />
       </Container>

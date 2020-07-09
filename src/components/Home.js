@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Menu, Container, Card, Header } from "semantic-ui-react";
 import TrackCard from "./TrackCard";
-// import ReactPlayer from "react-player";
 
 export default class Home extends Component {
   constructor(props) {

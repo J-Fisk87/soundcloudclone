@@ -4,7 +4,7 @@ import TrackCard from "./TrackCard";
 
 export default function Tracklist(props) {
   return props.tracks.length > 0 ? (
-    <CardGroup>
+    <CardGroup itemsPerRow={1}>
       {props.tracks.map((t) => (
         <TrackCard track={t} />
       ))}

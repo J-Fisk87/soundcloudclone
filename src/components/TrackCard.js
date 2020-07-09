@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card } from "semantic-ui-react";
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 
 export default class TrackCard extends Component {
   render() {
@@ -11,9 +11,11 @@ export default class TrackCard extends Component {
           <Card.Header>{title}</Card.Header>
           <Card.Meta>
             <span>{username}</span>
-            <span className="hidden">{user_id}</span>
+            <span style="hidden">{user_id}</span>
           </Card.Meta>
-          <Card.Description>audio player goes here</Card.Description>
+          <Card.Description>
+            <ReactPlayer url={audio} controls={true} />
+          </Card.Description>
         </Card.Content>
       </Card>
     );
