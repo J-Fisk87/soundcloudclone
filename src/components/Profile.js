@@ -31,7 +31,11 @@ export default class Profile extends Component {
 
   render() {
     // let { user } = this.state.viewedUser;
-    let { tracks } = this.state.tracks;
-    return (<ProfHeader user={this.state.viewedUser} />), (<Tracklist tracks={tracks} />);
+    return (
+      <Container text>
+        <ProfHeader user={this.state.viewedUser} /> <br />
+        <Tracklist tracks={this.state.tracks} />
+      </Container>
+    );
   }
 }
