@@ -4,12 +4,13 @@ import { Container, Button, Icon } from "semantic-ui-react";
 export default function ProfHeader(props) {
     let { username, email } = props.user;
 
-  function followButton() {
-    if (props.self){
-        return <Icon chess king size='large' />
-    els
-    }
-  }
+    //how is somebody "followed"?
+
+//   function followButton() {
+//     if (props.self){
+//         return <Icon chess king size='large' />
+//     }else if ()
+//   }
 
   return (
     <div>
