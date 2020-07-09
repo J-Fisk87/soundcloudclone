@@ -63,7 +63,8 @@ export default class App extends Component {
          <NavBar />
           <Switch>
             <Route exact path='/home' render={props => <Home user={user}/>}/>
-            <Route exact path='/profile' render={props => <Profile user={user}/>}/>
+            <Route exact path='/profile/:id' render={props => <Profile user={null}/>}/>
+            <Route exact path='/myprofile' render={props => <Profile user={user}/>}/>
             <Route exact path='/upload' render={props => <Upload {...props} user={user}/>}/>
             <Route exact path='/' render={props =>  this.state.isLoggedIn ? <div></div> : <HomepageLayout {...props} loggedInStatus={this.state.isLoggedIn}/>}/>
             <Route exact path='/login' render={props => <Login {...props} loggedInStatus={this.state.isLoggedIn} handleLogin={this.handleLogin}/>}/>

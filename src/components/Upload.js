@@ -25,7 +25,7 @@ export default class Upload extends Component {
             method: 'POST',
             body: data
         }).then(res => res.json()).then((json) => {
-            this.props.history.push('/home')
+            this.props.history.push('/home/1')
         })
     }
  
