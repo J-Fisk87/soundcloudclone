@@ -13,7 +13,6 @@ export default class UserCard extends Component {
     }
 
     render() {
-        console.log(this.props.user)
         let {username, id, email} = this.props.user;
         return (
                 <Card onClick={this.cardClicked}>

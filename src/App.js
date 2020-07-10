@@ -25,7 +25,6 @@ export default class App extends Component {
   componentDidMount() {
     this.loginStatus()
     fetch('http://localHost:3000/api/users/1').then(res => res.json()).then(user => {
-      console.log(user)
       this.setState({user: user})
     })
   }
@@ -47,7 +46,7 @@ export default class App extends Component {
     fetch('http://localhost:3000/logged_in')
     .then(res => res.json())
     .then(json => {
-      console.log(json)
+      // console.log()
       if (json.logged_in) {
         this.handleLogin(json)
       } else {
