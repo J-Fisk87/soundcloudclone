@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Container, Card, Header } from "semantic-ui-react";
+import { 
+    Menu,
+    Container,
+    Card,
+    Header,
+    Divider
+
+} from 'semantic-ui-react'
 import TrackCard from "./TrackCard";
 
 export default class Home extends Component {
@@ -20,7 +27,6 @@ export default class Home extends Component {
   }
  
     render() {
-        console.log(this.props.user.id)
         return (
         <div>
             <Container text>
@@ -28,6 +34,11 @@ export default class Home extends Component {
             <Card.Group itemsPerRow={1}>
                 {this.state.feed.map(track => <TrackCard isCurrentUser={track.user_id === this.props.user.id} track={track}/>)}
             </Card.Group>
+                <Header as='h3'>Hear the latest tracks from the people you’re following:</Header>
+                <Divider/>
+                <Card.Group itemsPerRow={1}>
+                    {this.state.feed.map(track => <TrackCard isCurrentUser={track.user_id == this.props.user.id} track={track}/>)}
+                </Card.Group>
             </Container>
         </div>
         );

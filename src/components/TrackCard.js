@@ -26,3 +26,21 @@ export default class TrackCard extends Component {
     );
   }
 }
+
+    render() {
+        let {title, audio, username, user_id} = this.props.track;
+        return (
+            <Card>
+                <Card.Content>
+                    <Card.Header>{title}</Card.Header>
+                    <Link to={`/${this.props.isCurrentUser ? "myprofile" : `profile/${user_id}`}`}>
+                        <Card.Meta>{username}</Card.Meta>
+                    </Link>
+                    <Card.Description>
+                        audio player goes here
+                    </Card.Description>
+                </Card.Content>
+            </Card>
+        );
+    }
+}

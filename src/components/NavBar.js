@@ -1,29 +1,20 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import {Link, useHistory, withRouter} from 'react-router-dom'
 import { 
     Menu,
-    Container 
+    Container,
+    Input,
+    Form 
 
 } from 'semantic-ui-react'
 
-export default class NavBar extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            activeItem: window.location.pathname.replace("/", "")
-        }
-    }
+function NavBar(props) {
 
-    handleItemClick = (e, { name }) => {
-        this.setState({ activeItem: name });
-    }
-
-    componentDidMount() {
-        
-    }
- 
-    render() {
-        const { activeItem } = this.state
+    // onSearchSubmit = e => {
+    //     e.preventDefault()
+    // }
+        const { activeItem } = props
+        let history = useHistory()
         return (
             <Menu stackable>
                 <Container text>
@@ -31,7 +22,6 @@ export default class NavBar extends Component {
                         <Menu.Item
                         name='home'
                         active={activeItem === 'home'}
-                        onClick={this.handleItemClick}
                         >
                         Home
                         </Menu.Item>
@@ -41,7 +31,6 @@ export default class NavBar extends Component {
                         <Menu.Item
                         name='profile'
                         active={activeItem === 'profile'}
-                        onClick={this.handleItemClick}
                         >
                         Profile
                         </Menu.Item>
@@ -51,13 +40,18 @@ export default class NavBar extends Component {
                         <Menu.Item
                         name='upload'
                         active={activeItem === 'upload'}
-                        onClick={this.handleItemClick}
                         >
                         Upload
                         </Menu.Item>
                     </Link>
+                    <Menu.Item>
+                        <Form onSubmit ={(e) => history.push(`/search/?=${e.target.searchText.value}`)}>
+                            <Input name="searchText" icon='search' placeholder='Search...' />
+                        </Form>
+                    </Menu.Item>
                 </Container>
             </Menu>
         );
     }
-}
+
+    export default NavBar;

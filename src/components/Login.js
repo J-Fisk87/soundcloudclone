@@ -34,7 +34,7 @@ export default class Login extends Component {
             body: JSON.stringify({user: user})
         }).then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.logged_in) {
                     this.props.handleLogin(data)
                     this.redirect()
