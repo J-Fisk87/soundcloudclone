@@ -3,7 +3,8 @@ import {
     Menu,
     Container,
     Card,
-    Header
+    Header,
+    Divider
 
 } from 'semantic-ui-react'
 import TrackCard from "./TrackCard";
@@ -30,14 +31,14 @@ export default class Home extends Component {
     }
  
     render() {
-        console.log(this.props.user.id)
         return (
         <div>
             <Container text>
-            <Header as='h3'>Hear the latest tracks from the people you’re following:</Header>
-            <Card.Group itemsPerRow={1}>
-                {this.state.feed.map(track => <TrackCard isCurrentUser={track.user_id == this.props.user.id} track={track}/>)}
-            </Card.Group>
+                <Header as='h3'>Hear the latest tracks from the people you’re following:</Header>
+                <Divider/>
+                <Card.Group itemsPerRow={1}>
+                    {this.state.feed.map(track => <TrackCard isCurrentUser={track.user_id == this.props.user.id} track={track}/>)}
+                </Card.Group>
             </Container>
         </div>
         );

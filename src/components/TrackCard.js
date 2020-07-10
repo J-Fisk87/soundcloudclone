@@ -10,7 +10,6 @@ export default class TrackCard extends Component {
 
     render() {
         let {title, audio, username, user_id} = this.props.track;
-        console.log(`${this.props.isCurrentUser} ${user_id}`)
         return (
             <Card>
                 <Card.Content>

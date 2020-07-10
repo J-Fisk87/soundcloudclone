@@ -6,9 +6,11 @@ import Home from './components/Home';
 import Profile from './components/Profile'
 import Upload from './components/Upload'
 import NavBar from './components/NavBar'
+import Search from './components/Search'
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Switch, Route, useLocation} from 'react-router-dom'
+import {BrowserRouter, Switch, Route, useLocation, withRouter} from 'react-router-dom'
+
 
 export default class App extends Component {
 
@@ -60,7 +62,7 @@ export default class App extends Component {
     return (
       <div>
          <BrowserRouter>
-         <NavBar />
+         <NavBar activeItem={window.location.pathname.replace("/", "")}/>
           <Switch>
             <Route exact path='/home' render={props => <Home user={user}/>}/>
             <Route exact path='/profile/:id' render={props => <Profile currentUser={user} />}/>
@@ -69,9 +71,12 @@ export default class App extends Component {
             <Route exact path='/' render={props =>  this.state.isLoggedIn ? <div></div> : <HomepageLayout {...props} loggedInStatus={this.state.isLoggedIn}/>}/>
             <Route exact path='/login' render={props => <Login {...props} loggedInStatus={this.state.isLoggedIn} handleLogin={this.handleLogin}/>}/>
             <Route exact path='/signup' render={props => <Signup {...props} loggedInStatus={this.state.isLoggedIn} handleLogin={this.handleLogin}/>}/>
+            <Route exact path='/search' render={props => <Search {...props} user={user} />} />
           </Switch>
         </BrowserRouter>
       </div>
     );
   }
+
 }
+
