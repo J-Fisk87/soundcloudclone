@@ -54,7 +54,7 @@ export default class Login extends Component {
             console.log(json)
             })
             .catch(error => console.log('api errors:', error))
-            this.props.history.push('/')
+            this.props.history.push('/home')
           }
 
     render() {

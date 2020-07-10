@@ -21,7 +21,7 @@ export default class Search extends Component {
         this.state= {
             searchType: "tracks",
             searchResults: [],
-            searchText: this.props.location.search.split("=")[1]
+            searchText: this.props.location.search.split("=")[1],
         }
     }
 
@@ -47,6 +47,7 @@ export default class Search extends Component {
 
     render() {
         let {searchType, searchText, searchResults} = this.state;
+
         return (
             <Container text>
                 <Button onClick={this.toggleSearchType} active={searchType == "tracks" ? true : false} attached='left'>Tracks</Button>

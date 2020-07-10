@@ -6,7 +6,7 @@ export default function Tracklist(props) {
   return props.tracks.length > 0 ? (
     <CardGroup itemsPerRow={1}>
       {props.tracks.map((t) => (
-        <TrackCard track={t} />
+        <TrackCard isCurrentUser={props.isCurrentUser} track={t} />
       ))}
     </CardGroup>
   ) : (
