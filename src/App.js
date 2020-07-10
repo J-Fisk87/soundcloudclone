@@ -6,11 +6,12 @@ import Home from './components/Home';
 import Profile from './components/Profile'
 import Upload from './components/Upload'
 import NavBar from './components/NavBar'
+import './App.css';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Search from './components/Search'
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Switch, Route, useLocation, withRouter} from 'react-router-dom'
-
 
 export default class App extends Component {
 
@@ -60,6 +61,8 @@ export default class App extends Component {
     let {user} = this.state;
     return (
       <div>
+        <BrowserRouter>
+          <NavBar />
          <BrowserRouter>
          <NavBar activeItem={window.location.pathname.replace("/", "")}/>
           <Switch>

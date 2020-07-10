@@ -7,9 +7,6 @@ import {
     Form 
 
 } from 'semantic-ui-react'
-import PropTypes from "prop-types";
-// import ReactPlayer from "react-player";
-
 
 function NavBar(props) {
 
